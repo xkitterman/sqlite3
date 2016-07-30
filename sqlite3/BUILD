@@ -1,15 +1,17 @@
+public = ["//visibility:public"]
+
 cc_binary(
-    name       = "sql",
-    srcs       = ["src/shell.c"],
+    name       = "shell",
+    srcs       = ["sources/shell.c"],
     deps       = [":sqlite3"],
-    visibility = ["//visibility:public"],
+    visibility = public,
 )
 
 cc_library(
     name       = "sqlite3",
-    includes   = ["inc"],
-    hdrs       = ["inc/sqlite3.h", "inc/sqlite3ext.h"],
-    srcs       = ["src/sqlite3.c"],
+    includes   = ["headers"],
+    hdrs       = ["headers/sqlite3.h", "headers/sqlite3ext.h"],
+    srcs       = ["sources/sqlite3.c"],
     copts      = ["-O2", "-Wall"],
-    visibility = ["//visibility:public"],
+    visibility = public,
 )
